@@ -31,7 +31,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="<?php echo base_url(); ?>">Prachatech</a>
+					<a class="navbar-brand" href="index.html">Prachatech</a>
 				</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="top-navbar-1">
@@ -91,25 +91,57 @@
                     		
                     		<fieldset>
                     		    <h4>Tell us who you are:</h4>
-                    			<div class="form-group">
-                    			    <label class="sr-only" for="f1-first-name">First name</label>
+                    			<div class="form-group col-md-6">
+                    			    <label class="" for="f1-first-name">Name</label>
                                     <input type="text" name="f1-first-name" placeholder="First name..." class="f1-first-name form-control" id="f1-first-name">
                                 </div>
-                                <div class="form-group">
-                                    <label class="sr-only" for="f1-last-name">Gender</label>
-                                    <select class="form-control">
+								<div class="form-group col-md-6">
+                    			    <label class="" for="">Email Address</label>
+                                    <input style="height:44px" type="email" name="f1-first-name" placeholder="Email Address" class=" form-control" id="f1-first-name">
+                                </div>
+                          
+								<div class="form-group col-md-6">
+                                    <label class="" for="f1-last-name">Mobile</label>
+                                    <input type="text" name="f1-last-name" placeholder="Mobile" class="f1-last-name form-control" id="f1-last-name">
+                                </div>
+								<div class="form-group col-md-6">
+                                    <label class="" for="f1-last-name">Alternate Mobile Number</label>
+                                    <input type="text" name="f1-last-name" placeholder="Alternate Mobile Number" class="f1-last-name form-control" id="f1-last-name">
+                                </div>
+								<div class="form-group col-md-6">
+                                    <label class="" for="f1-last-name">Project</label>
+                                    <input type="text" name="f1-last-name" placeholder="Project" class="f1-last-name form-control" id="f1-last-name">
+                                </div>
+								<div class="form-group col-md-6">
+                                    <label class="" for="f1-last-name">Amount</label>
+                                    <input type="text" name="f1-last-name" placeholder="Amount" class="f1-last-name form-control" id="f1-last-name">
+                                </div>	
+								<div class="form-group col-md-6">
+                                    <label class="" for="f1-last-name">Pay</label>
+                                    <input type="text" name="f1-last-name" placeholder="Pay" class="f1-last-name form-control" id="f1-last-name">
+                                </div>
+								<div class="form-group col-md-6">
+                                    <label class="" for="f1-last-name">Due</label>
+                                    <input type="text" name="f1-last-name" placeholder="Due" class="f1-last-name form-control" id="f1-last-name">
+                                </div>	
+								<div class="form-group col-md-6">
+                                    <label class="" for="f1-last-name">Others</label>
+                                    <input type="text" name="f1-last-name" placeholder="Others" class="f1-last-name form-control" id="f1-last-name">
+                                </div>
+								 <div class="form-group col-md-6">
+                                    <label class="" for="f1-last-name">Payment</label>
+                                    <select class="form-control" style="height:44px;">
+										<option>Select Payment Menthod</option>
 										<option>Select Gender</option>
-										<option>Male</option>
-										<option>Female</option>
+										<option>Online bank</option>
+										<option>Cash</option>
+										<option>Others</option>
 									</select>
                                 </div>
-								<div class="form-group">
-                                    <label class="sr-only" for="f1-last-name">Last name</label>
-                                    <input type="text" name="f1-last-name" placeholder="Last name..." class="f1-last-name form-control" id="f1-last-name">
-                                </div>
-                                <div class="form-group">
-                                    <label class="sr-only" for="f1-about-yourself">About yourself</label>
-                                    <textarea name="f1-about-yourself" placeholder="About yourself..." 
+								
+                                <div class="form-group col-md-6">
+                                    <label class="" for="f1-about-yourself">Address</label>
+                                    <textarea name="f1-about-yourself" placeholder="Enter Address" 
                                     	                 class="f1-about-yourself form-control" id="f1-about-yourself"></textarea>
                                 </div>
                                 <div class="f1-buttons">
@@ -119,34 +151,54 @@
 
                             <fieldset>
                               
-								<div class=" col-md-6  col-md-offset-3 table-responsive">
+								<div class=" col-md-8  col-md-offset-2 table-responsive">
 								  <h4>Check your Details</h4>
 									<table class="table table-bordered">
 										
 										<tbody>
 										  <tr>
 											<th>Name</th>
-											<td>Doe</td>
+											<td>xxxxxx</td>
 										  </tr>
 										   <tr>
-											<th>Name</th>
-											<td>Doe</td>
+											<th>Email Address</th>
+											<td>xxx@gmail.com</td>
 										  </tr>
 										   <tr>
-											<th>Name</th>
-											<td>Doe</td>
+											<th>Mobile</th>
+											<td>85xxxxxxx</td>
 										  </tr>
 										   <tr>
-											<th>Name</th>
-											<td>Doe</td>
+											<th>Alternate Mobile number</th>
+											<td>8500xxxxxx</td>
 										  </tr>
 										   <tr>
-											<th>Name</th>
-											<td>Doe</td>
+											<th>Project</th>
+											<td>Test Project</td>
 										  </tr>
 										   <tr>
-											<th>Name</th>
+											<th>Amount</th>
+											<td>RS 10000</td>
+										  </tr>
+										  <tr>
+											<th>Pay</th>
+											<td>Rs 5000</td>
+										  </tr> 
+										  <tr>
+											<th>Due</th>
+											<td>Rs 5000</td>
+										  </tr> 
+										  <tr>
+											<th>Others</th>
 											<td>Doe</td>
+										  </tr>
+										    <tr>
+											<th>payment</th>
+											<td>Cash</td>
+										  </tr>
+										  <tr>
+											<th>Address</th>
+											<td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
 										  </tr>
 										  
 										</tbody>
@@ -160,23 +212,15 @@
                             </fieldset>
 
                             <fieldset>
-                                <h4>Social media profiles:</h4>
-                                <div class="form-group">
-                                    <label class="sr-only" for="f1-facebook">Facebook</label>
-                                    <input type="text" name="f1-facebook" placeholder="Facebook..." class="f1-facebook form-control" id="f1-facebook">
-                                </div>
-                                <div class="form-group">
-                                    <label class="sr-only" for="f1-twitter">Twitter</label>
-                                    <input type="text" name="f1-twitter" placeholder="Twitter..." class="f1-twitter form-control" id="f1-twitter">
-                                </div>
-                                <div class="form-group">
-                                    <label class="sr-only" for="f1-google-plus">Google plus</label>
-                                    <input type="text" name="f1-google-plus" placeholder="Google plus..." class="f1-google-plus form-control" id="f1-google-plus">
-                                </div>
-                                <div class="f1-buttons">
-                                    <button type="button" class="btn btn-previous">Previous</button>
-                                    <button type="submit" class="btn btn-submit">Submit</button>
-                                </div>
+								<div class=" col-md-8  col-md-offset-2">
+									
+									<div class="text-center">
+										<i style="font-size:50px;color:#4caf50;" class="fa fa-check-circle" aria-hidden="true"></i>
+										<h3>Payment Successful </h3>
+										<p>we will email you receipt confirming your payment Shortly.</p>
+									</div>
+								</div>
+                              
                             </fieldset>
                     	
                     	</form>

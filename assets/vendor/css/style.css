@@ -6,6 +6,12 @@ body {
     color: #888;
     line-height: 30px;
     text-align: center;
+	
+	background: url(../img/body.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 strong { font-weight: 500; }
