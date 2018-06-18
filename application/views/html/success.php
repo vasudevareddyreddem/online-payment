@@ -110,7 +110,11 @@
                     
             </div>
         </div>
-
+		<script>
+		  function preventBack(){window.history.forward();}
+		  setTimeout("preventBack()", 0);
+		  window.onunload=function(){null};
+		</script>
 
         <!-- Javascript -->
         <script src="<?php echo base_url(); ?>assets/vendor/js/jquery-1.11.1.min.js"></script>

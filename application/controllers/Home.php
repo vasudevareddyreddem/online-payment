@@ -20,11 +20,21 @@ class Home extends CI_Controller {
 		}
 	public function index()
 	{	
-		$this->load->view('html/index');
+		
+		if($this->uri->segment(3)!=''){
+			$u_id=base64_decode($this->uri->segment(3));
+			$data['details']=$this->Home_model->get_user_details($u_id);
+		}else{
+			$data['details']=array();
+		}
+		
+		//echo '<pre>';print_r($data);exit;
+		$this->load->view('html/index',$data);
 	}
 	
 	public  function post(){
 		$post=$this->input->post();
+		//echo '<pre>';print_r($post);exit;
 		$details=array(
 		'name'=>isset($post['name'])?$post['name']:'',
 		'email'=>isset($post['email'])?$post['email']:'',
@@ -38,11 +48,18 @@ class Home extends CI_Controller {
 		'address'=>isset($post['address'])?$post['address']:'',
 		'create_at'=>date('Y-m-d H:i:s'),
 		);
-		
-		$save=$this->Home_model->save_user($details);
+		if(isset($post['u_id'])&& $post['u_id']!=''){
+			$save=$this->Home_model->update_payment_details($post['u_id'],$details);
+		}else{
+			$save=$this->Home_model->save_user($details);
+		}
 		if(count($save)>0){
 			$this->session->set_flashdata('success',"Hospital Representative details are successfully updated");
-			redirect('payment/index/'.base64_encode($save));	
+			if(isset($post['u_id'])&& $post['u_id']!=''){
+			redirect('payment/index/'.base64_encode($post['u_id']));
+			}else{	
+				redirect('payment/index/'.base64_encode($save));
+			}			
 		}else{
 			$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
 			redirect('home');

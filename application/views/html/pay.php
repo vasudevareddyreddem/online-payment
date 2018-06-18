@@ -158,6 +158,13 @@
 									 </div>
 									 <div class="clearfix">&nbsp;</div>
 									 		 <form  id="paymentform" name="paymentform" action="<?php echo base_url('payment/success'); ?>" method="POST">
+											 <?php $csrf = array(
+								'name' => $this->security->get_csrf_token_name(),
+								'hash' => $this->security->get_csrf_hash()
+									); ?>
+										<input type="hidden" name="<?=$csrf['name'];?>" value="<?=$csrf['hash'];?>" />
+
+      
 												<input type="hidden" name="u_id" id="u_id" value="<?php echo isset($user_details['id'])?$user_details['id']:''; ?>">
 											  <script
 												src="https://checkout.razorpay.com/v1/checkout.js"
@@ -180,7 +187,7 @@
 														<!--<input type="hidden" name="shopping_order_id" value="3456">-->
 													</form>
                                 <div class="f1-buttons">
-                                    <a href="<?php echo base_url('home'); ?>" type="button" class="btn btn-default  btn-lg">Previous</a>
+                                    <a href="<?php echo base_url('home/index/'.base64_encode($user_details['id'])); ?>" type="button" class="btn btn-default  btn-lg">Previous</a>
                                 </div>
                             </fieldset>
 
@@ -203,7 +210,11 @@
                     
             </div>
         </div>
-
+			<script>
+			  function preventBack(){window.history.forward();}
+			  setTimeout("preventBack()", 0);
+			  window.onunload=function(){null};
+			</script>
 
         <!-- Javascript -->
         <script src="<?php echo base_url(); ?>assets/vendor/js/jquery-1.11.1.min.js"></script>

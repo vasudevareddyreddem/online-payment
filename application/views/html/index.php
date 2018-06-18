@@ -92,51 +92,56 @@
                     		<fieldset>
 							
 							<form action="<?php echo base_url('home/post'); ?>" method="post">
-									<input type="hidden" name="<?=$this->security->get_csrf_token_name();?>" value="<?=$this->security->get_csrf_hash();?>" />
+										<?php $csrf = array(
+										'name' => $this->security->get_csrf_token_name(),
+										'hash' => $this->security->get_csrf_hash()
+										); ?>
+										<input type="hidden" name="<?=$csrf['name'];?>" value="<?=$csrf['hash'];?>" />
 
+      									<input type="hidden" name="u_id" id="u_id" value="<?php echo isset($details['id'])?$details['id']:''; ?>">
                     		    <h4>Tell us who you are:</h4>
                     			<div class="form-group col-md-6">
                     			    <label class="" for="f1-first-name">Name</label>
-                                    <input type="text" name="name" placeholder="First name..." class="f1-first-name form-control" id="name">
+                                    <input type="text" name="name" placeholder="First name..." class="f1-first-name form-control" value="<?php echo isset($details['name'])?$details['name']:''; ?>" id="name">
                                 </div>
 								<div class="form-group col-md-6">
                     			    <label class="" for="">Email Address</label>
-                                    <input style="height:44px" type="text" name="email" placeholder="Email Address" class=" form-control" id="email">
+                                    <input style="height:44px" type="text" name="email" placeholder="Email Address" class=" form-control" value="<?php echo isset($details['email'])?$details['email']:''; ?>" id="email">
                                 </div>
                           
 								<div class="form-group col-md-6">
                                     <label class="" for="f1-last-name">Mobile</label>
-                                    <input type="text" name="mobile" placeholder="Mobile" class="f1-last-name form-control" id="mobile">
+                                    <input type="text" name="mobile" placeholder="Mobile" class="f1-last-name form-control" value="<?php echo isset($details['mobile'])?$details['mobile']:''; ?>" id="mobile">
                                 </div>
 								<div class="form-group col-md-6">
                                     <label class="" for="f1-last-name">Alternate Mobile Number</label>
-                                    <input type="text" name="alternate_mobile" placeholder="Alternate Mobile Number" class="f1-last-name form-control" id="alternate_mobile">
+                                    <input type="text" name="alternate_mobile" placeholder="Alternate Mobile Number" class="f1-last-name form-control" value="<?php echo isset($details['alt_mobile'])?$details['alt_mobile']:''; ?>" id="alternate_mobile">
                                 </div>
 								<div class="form-group col-md-6">
                                     <label class="" for="f1-last-name">Project</label>
-                                    <input type="text" name="project" placeholder="Project" class="f1-last-name form-control" id="project">
+                                    <input type="text" name="project" placeholder="Project" class="f1-last-name form-control" value="<?php echo isset($details['project'])?$details['project']:''; ?>" id="project">
                                 </div>
 								<div class="form-group col-md-6">
                                     <label class="" for="f1-last-name">Amount</label>
-                                    <input type="text" name="amount" placeholder="Amount" class="f1-last-name form-control" id="amount">
+                                    <input type="text" name="amount" placeholder="Amount" class="f1-last-name form-control" value="<?php echo isset($details['amount'])?$details['amount']:''; ?>" id="amount">
                                 </div>	
 								<div class="form-group col-md-6">
                                     <label class="" for="f1-last-name">Pay</label>
-                                    <input type="text" name="pay_amount" placeholder="Pay" class="f1-last-name form-control" id="pay_amount">
+                                    <input type="text" name="pay_amount" placeholder="Pay" class="f1-last-name form-control" value="<?php echo isset($details['pay'])?$details['pay']:''; ?>" id="pay_amount">
                                 </div>
 								<div class="form-group col-md-6">
                                     <label class="" for="f1-last-name">Due</label>
-                                    <input type="text" name="due_amount" placeholder="Due" class="f1-last-name form-control" id="due_amount">
+                                    <input type="text" name="due_amount" placeholder="Due" class="f1-last-name form-control" value="<?php echo isset($details['due'])?$details['due']:''; ?>" id="due_amount">
                                 </div>	
 								<div class="form-group col-md-6">
                                     <label class="" for="f1-last-name">Others</label>
-                                    <input type="text" name="others" placeholder="Others" class="f1-last-name form-control" id="others">
+                                    <input type="text" name="others" placeholder="Others" class="f1-last-name form-control" value="<?php echo isset($details['other'])?$details['other']:''; ?>" id="others">
                                 </div>
 								
                                 <div class="form-group col-md-6">
                                     <label class="" for="f1-about-yourself">Address</label>
                                     <textarea name="address" placeholder="Enter Address" 
-                                    	                 class="f1-about-yourself form-control" id="address"></textarea>
+                                    	                 class="f1-about-yourself form-control" id="address"><?php echo isset($details['address'])?$details['address']:''; ?></textarea>
                                 </div>
                                 <div class="f1-buttons">
                                     <button type="submit" class="btn btn-next">Next</button>
