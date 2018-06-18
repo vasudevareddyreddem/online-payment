@@ -18,6 +18,16 @@
        
 
     </head>
+	<style>
+	.razorpay-payment-button{
+		float:right;
+		margin-left:5px;
+		background:orange;
+		color:#fff;
+		border-radius:5px;
+		padding:5px 10px;
+	}
+	</style>
 
     <body>
 
@@ -67,19 +77,19 @@
                 
                 <div class="row">
                     <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 form-box">
-                    	<div  class="f1">
+                    	<div role="form" class="f1">
 
                     		<h3>Billing</h3>
                     		<p>Fill in the form to get instant access</p>
                     		<div class="f1-steps">
                     			<div class="f1-progress">
-                    			    <div class="f1-progress-line" data-now-value="16.66" data-number-of-steps="3" style="width: 16.66%;"></div>
+                    			    <div class="f1-progress-line" data-now-value="16.66" data-number-of-steps="3" style="width: 50.66%;"></div>
                     			</div>
-                    			<div class="f1-step active">
+                    			<div class="f1-step activated">
                     				<div class="f1-step-icon"><i class="fa fa-info"></i></div>
                     				<p>Details</p>
                     			</div>
-                    			<div class="f1-step">
+                    			<div class="f1-step active">
                     				<div class="f1-step-icon"><i class="fa fa-credit-card-alt"></i></div>
                     				<p>Payment</p>
                     			</div>
@@ -88,123 +98,89 @@
                     				<p>Success</p>
                     			</div>
                     		</div>
-                    		
-                    		<fieldset>
-							
-							<form action="<?php echo base_url('home/post'); ?>" method="post">
-									<input type="hidden" name="<?=$this->security->get_csrf_token_name();?>" value="<?=$this->security->get_csrf_hash();?>" />
+                    		<?php //echo '<pre>';print_r($user_details);exit; ?>
 
-                    		    <h4>Tell us who you are:</h4>
-                    			<div class="form-group col-md-6">
-                    			    <label class="" for="f1-first-name">Name</label>
-                                    <input type="text" name="name" placeholder="First name..." class="f1-first-name form-control" id="name">
-                                </div>
-								<div class="form-group col-md-6">
-                    			    <label class="" for="">Email Address</label>
-                                    <input style="height:44px" type="text" name="email" placeholder="Email Address" class=" form-control" id="email">
-                                </div>
-                          
-								<div class="form-group col-md-6">
-                                    <label class="" for="f1-last-name">Mobile</label>
-                                    <input type="text" name="mobile" placeholder="Mobile" class="f1-last-name form-control" id="mobile">
-                                </div>
-								<div class="form-group col-md-6">
-                                    <label class="" for="f1-last-name">Alternate Mobile Number</label>
-                                    <input type="text" name="alternate_mobile" placeholder="Alternate Mobile Number" class="f1-last-name form-control" id="alternate_mobile">
-                                </div>
-								<div class="form-group col-md-6">
-                                    <label class="" for="f1-last-name">Project</label>
-                                    <input type="text" name="project" placeholder="Project" class="f1-last-name form-control" id="project">
-                                </div>
-								<div class="form-group col-md-6">
-                                    <label class="" for="f1-last-name">Amount</label>
-                                    <input type="text" name="amount" placeholder="Amount" class="f1-last-name form-control" id="amount">
-                                </div>	
-								<div class="form-group col-md-6">
-                                    <label class="" for="f1-last-name">Pay</label>
-                                    <input type="text" name="pay_amount" placeholder="Pay" class="f1-last-name form-control" id="pay_amount">
-                                </div>
-								<div class="form-group col-md-6">
-                                    <label class="" for="f1-last-name">Due</label>
-                                    <input type="text" name="due_amount" placeholder="Due" class="f1-last-name form-control" id="due_amount">
-                                </div>	
-								<div class="form-group col-md-6">
-                                    <label class="" for="f1-last-name">Others</label>
-                                    <input type="text" name="others" placeholder="Others" class="f1-last-name form-control" id="others">
-                                </div>
-								
-                                <div class="form-group col-md-6">
-                                    <label class="" for="f1-about-yourself">Address</label>
-                                    <textarea name="address" placeholder="Enter Address" 
-                                    	                 class="f1-about-yourself form-control" id="address"></textarea>
-                                </div>
-                                <div class="f1-buttons">
-                                    <button type="submit" class="btn btn-next">Next</button>
-                                </div>
-                            </fieldset>
-
-                    	
-                    	</form>
-						
                             <fieldset>
                               
 								<div class=" col-md-8  col-md-offset-2 table-responsive">
 								  <h4>Check your Details</h4>
+
 									<table class="table table-bordered">
 										
 										<tbody>
 										  <tr>
 											<th>Name</th>
-											<td>xxxxxx</td>
+											<td><?php echo isset($user_details['name'])?$user_details['name']:''; ?></td>
 										  </tr>
 										   <tr>
 											<th>Email Address</th>
-											<td>xxx@gmail.com</td>
+											<td><?php echo isset($user_details['email'])?$user_details['email']:''; ?></td>
 										  </tr>
 										   <tr>
 											<th>Mobile</th>
-											<td>85xxxxxxx</td>
+											<td><?php echo isset($user_details['mobile'])?$user_details['mobile']:''; ?></td>
 										  </tr>
 										   <tr>
 											<th>Alternate Mobile number</th>
-											<td>8500xxxxxx</td>
+											<td><?php echo isset($user_details['alt_mobile'])?$user_details['alt_mobile']:''; ?></td>
 										  </tr>
 										   <tr>
 											<th>Project</th>
-											<td>Test Project</td>
+											<td><?php echo isset($user_details['project'])?$user_details['project']:''; ?></td>
 										  </tr>
 										   <tr>
 											<th>Amount</th>
-											<td>RS 10000</td>
+											<td><?php echo isset($user_details['amount'])?$user_details['amount']:''; ?></td>
 										  </tr>
 										  <tr>
 											<th>Pay</th>
-											<td>Rs 5000</td>
+											<td><?php echo isset($user_details['pay'])?$user_details['pay']:''; ?></td>
 										  </tr> 
 										  <tr>
 											<th>Due</th>
-											<td>Rs 5000</td>
+											<td><?php echo isset($user_details['due'])?$user_details['due']:''; ?></td>
 										  </tr> 
 										  <tr>
 											<th>Others</th>
-											<td>Doe</td>
+											<td><?php echo isset($user_details['other'])?$user_details['other']:''; ?></td>
 										  </tr>
 										    <tr>
 											<th>payment</th>
-											<td>Cash</td>
+											<td>Online</td>
 										  </tr>
 										  <tr>
 											<th>Address</th>
-											<td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+											<td><?php echo isset($user_details['address'])?$user_details['address']:''; ?></td>
 										  </tr>
 										  
 										</tbody>
 									  </table>
 									 </div>
 									 <div class="clearfix">&nbsp;</div>
+									 		 <form  id="paymentform" name="paymentform" action="<?php echo base_url('payment/success'); ?>" method="POST">
+												<input type="hidden" name="u_id" id="u_id" value="<?php echo isset($user_details['id'])?$user_details['id']:''; ?>">
+											  <script
+												src="https://checkout.razorpay.com/v1/checkout.js"
+												data-key="<?php echo $details['key']?>"
+												data-amount="<?php echo $details['amount']?>"
+												data-currency="INR"
+												data-name="<?php echo $details['name']?>"
+												data-image="<?php echo $details['image']?>"
+												data-description="<?php echo $details['description']?>"
+												data-prefill.name="<?php echo $details['prefill']['name']?>"
+												data-prefill.email="<?php echo $details['prefill']['email']?>"
+												data-prefill.contact="<?php echo $details['prefill']['contact']?>"
+												data-notes.shopping_order_id="3456"
+												data-order_id="<?php echo $details['order_id']?>"
+												<?php if ($details['display_currency'] !== 'INR') { ?> data-display_amount="<?php echo $details['amount']?>" <?php } ?>
+												<?php if ($details['display_currency'] !== 'INR') { ?> data-display_currency="<?php echo $details['display_currency']?>" <?php } ?>
+											  >
+											  </script>
+															<!-- Any extra fields to be submitted with the form but not sent to Razorpay -->
+														<!--<input type="hidden" name="shopping_order_id" value="3456">-->
+													</form>
                                 <div class="f1-buttons">
-                                    <button type="button" class="btn btn-previous">Previous</button>
-                                    <button type="button" class="btn btn-next">Next</button>
+                                    <a href="<?php echo base_url('home'); ?>" type="button" class="btn btn-default  btn-lg">Previous</a>
                                 </div>
                             </fieldset>
 
@@ -219,6 +195,7 @@
 								</div>
                               
                             </fieldset>
+                    	
                     	
                     </div>
                     </div>
